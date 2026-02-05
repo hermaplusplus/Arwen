@@ -3,53 +3,63 @@ Neurodevelopmental Disorders:
     logic: complex
     display_name: "Attention-Deficit/Hyperactivity Disorder"
     icd_10: F90.2, F90.0, F90.1
+    page_path: "pages/adhd.py"
     data_path: "data/adhd.yaml"
   Autism Spectrum Disorder:
     logic: simple
     display_name: "Autism Spectrum Disorder"
     icd_10: F84.0, F84.5, F84.8, F84.9
+    page_path: "pages/simple.py"
     data_path: "data/asd.yaml"
 Depressive Disorders:
   Major Depressive Disorder:
     logic: complex
     display_name: "Major Depressive Disorder"
     icd_10: F32.0-F32.9, F33.0-F33.9
+    page_path: "pages/mdd.py"
     data_path: "data/mdd.yaml"
   Persistent Depressive Disorder:
     logic: complex
     display_name: "Persistent Depressive Disorder (Dysthymia)"
     icd_10: F34.1
+    page_path: "pages/pdd.py"
     data_path: "data/pdd.yaml"
 Anxiety Disorders:
   Generalized Anxiety Disorder:
     logic: complex
     display_name: "Generalized Anxiety Disorder"
     icd_10: F41.1
+    page_path: "pages/gad.py"
     data_path: "data/gad.yaml"
 Trauma- and Stressor-Related Disorders:
   Post-Traumatic Stress Disorder:
     logic: complex
     display_name: "Post-Traumatic Stress Disorder"
     icd_10: F43.1
+    page_path: "pages/ptsd.py"
     data_path: "data/ptsd.yaml"
 Personality Disorders:
   Antisocial Personality Disorder:
     logic: complex
     display_name: "Antisocial Personality Disorder"
     icd_10: F60.2
+    page_path: "pages/aspd.py"
     data_path: "data/aspd.yaml"
   Borderline Personality Disorder:
     logic: simple
     display_name: "Borderline Personality Disorder"
     icd_10: F60.3
+    page_path: "pages/simple.py"
     data_path: none
   Histrionic Personality Disorder:
     logic: simple
     display_name: "Histrionic Personality Disorder"
     icd_10: F60.4
+    page_path: "pages/simple.py"
     data_path: none
   Narcissistic Personality Disorder:
     logic: simple
     display_name: "Narcissistic Personality Disorder"
     icd_10: F60.81
+    page_path: "pages/simple.py"
     data_path: none
