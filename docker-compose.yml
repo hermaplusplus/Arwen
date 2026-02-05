@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    container_name: diagnostic_router
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - UV_COMPILE_BYTECODE=1
+    # This ensures the app restarts if the server reboots
+    restart: always
