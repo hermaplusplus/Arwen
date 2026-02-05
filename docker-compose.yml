@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: diagnostic_router
+    container_name: arwen
     ports:
       - "8501:8501"
     environment:
