@@ -17,7 +17,7 @@ st.markdown("Select a category and disorder, then press the button below to get 
 cat = st.selectbox("Category", list(data.keys()))
 dis = st.selectbox("Disorder", list(data[cat].keys()))
 
-if st.button("Open Diagnostic Criteria"):
+if st.button(":green[Open Diagnostic Criteria ->]"):
     # 1. Store the selection so the next page can see it
     st.session_state.current_cat = cat
     st.session_state.current_dis = dis
