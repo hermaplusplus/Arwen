@@ -7,7 +7,7 @@ def add_clean_footer():
     try:
         branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode().strip()
     except:
-        branch = "Main"
+        branch = ":red-badge[UNKNOWN]"
     
     is_docker = "Active" if os.path.exists('/.dockerenv') else "Inactive"
     
