@@ -1,8 +1,15 @@
 import streamlit as st
 import yaml
+from utils import add_clean_footer
 
 # Safety check
 if "current_dis" not in st.session_state:
+    st.switch_page("main.py")
+
+st.title(f"{st.session_state.current_dis}")
+
+# Back button
+if st.button("<- Return to Homepage", key="backtop"):
     st.switch_page("main.py")
 
 with open(st.session_state.current_dis_data, "r") as f:
@@ -12,11 +19,11 @@ for key in data.keys():
     if key not in st.session_state:
         st.session_state[key] = False
 
-st.title(f"{st.session_state.current_dis}")
-
 st.markdown("## Client Metadata")
 
-age = st.radio("Client Age", ["Under 17", "17 or older"], key="age")
+st.info("This is a :rainbow[reminder] that no data on this site is stored or shared. Specific age under 90 is not considered PHI regardless! This age selection determines the threshold for the number of subcriteria required to satisfy criteria A1 and A2.", icon="ℹ️")
+
+age = st.radio("Client Age", ["17 or older", "Under 17"], key="age")
 threshold = 5 if age == "17 or older" else 6
 
 a1_score = sum(st.session_state.get(f"A1{char}", False) for char in "abcdefghi")
@@ -87,9 +94,30 @@ S3 = st.radio("Specify current severity:", [f":green[**Mild**]\n\n{data['S3a'].r
 st.markdown("## Output")
 
 omitBCDE = st.toggle("Ignore criteria B, C, D, and E", key="omitBCDE", value=True)
+omitS1 = st.toggle("Ignore presentation specifier", key="omitS1", value=True)
+omitS2 = st.toggle("Ignore remission specifier", key="omitS2", value=True)
+omitS3 = st.toggle("Ignore severity specifier", key="omitS3", value=True)
 
-if omitBCDE:
+if omitBCDE and not any([omitS1, omitS2, omitS3]):
     st.info("Output will not include criteria B, C, D, and E.", icon="ℹ️")
+elif omitBCDE and all([omitS1, omitS2, omitS3]):
+    st.info("Output will not include criteria B, C, D, and E, nor presentation, remission, and severity specifiers.", icon="ℹ️")
+elif omitBCDE and any([omitS1, omitS2, omitS3]):
+    omitted = [o for o in [omitS1, omitS2, omitS3] if o]
+    omittext = ["presentation", "remission", "severity"]
+    if len(omitted) == 1:
+        st.info(f"Output will not include criteria B, C, D, and E, nor {omittext[[omitS1, omitS2, omitS3].index(True)]} specifier.", icon="ℹ️")
+    else:
+        st.info(f"Output will not include criteria B, C, D, and E, nor {omittext[[omitS1, omitS2, omitS3].index(True)]} and {omittext[[omitS1, omitS2, omitS3].index(True, [omitS1, omitS2, omitS3].index(True)+1)]} specifiers.", icon="ℹ️")
+elif all([omitS1, omitS2, omitS3]):
+    st.info("Output will not include presentation, remission, and severity specifiers.", icon="ℹ️")
+elif any([omitS1, omitS2, omitS3]):
+    omitted = [o for o in [omitS1, omitS2, omitS3] if o]
+    omittext = ["presentation", "remission", "severity"]
+    if len(omitted) == 1:
+        st.info(f"Output will not include {omittext[[omitS1, omitS2, omitS3].index(True)]} specifier.", icon="ℹ️")
+    else:
+        st.info(f"Output will not include {omittext[[omitS1, omitS2, omitS3].index(True)]} and {omittext[[omitS1, omitS2, omitS3].index(True, [omitS1, omitS2, omitS3].index(True)+1)]} specifiers.", icon="ℹ️")
 
 if not omitBCDE:
     criteria_met = all([st.session_state.get(key, False) for key in ["A", "B", "C", "D", "E"]])
@@ -128,5 +156,7 @@ with st.container(border=True):
     st.markdown(", ".join(output))
 
 # Back button
-if st.button("<- Change Disorder"):
+if st.button("<- Return to Homepage", key="backbottom"):
     st.switch_page("main.py")
+
+add_clean_footer() 
