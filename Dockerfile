@@ -4,6 +4,14 @@ FROM ghcr.io/astral-sh/uv:latest AS uv_bin
 # Use the official Python 3.13 slim image
 FROM python:3.13-slim
 
+# Declare build-time arguments
+ARG GIT_BRANCH
+ARG GIT_COMMIT
+
+# Set them as environment variables so the app can see them
+ENV APP_GIT_BRANCH=$GIT_BRANCH
+ENV APP_GIT_COMMIT=$GIT_COMMIT
+
 # Copy uv binaries
 COPY --from=uv_bin /uv /uvx /bin/
 
