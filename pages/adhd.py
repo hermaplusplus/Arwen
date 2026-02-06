@@ -123,11 +123,11 @@ if not omitBCDE:
     criteria_met = all([st.session_state.get(key, False) for key in ["A", "B", "C", "D", "E"]])
     if not criteria_met:
         unmet = [key for key in ["A", "B", "C", "D", "E"] if not st.session_state.get(key, False)]
-        st.error(f"Criteria not met: **{'**, **'.join(unmet)}**\n\n{st.session_state.current_dis} cannot be diagnosed unless all criteria A-E are met.\n\nConsider diagnosing :blue[F90.8] Other Specified AttentionDeficit/Hyperactivity Disorder or :blue[F90.9] Unspecified Attention-Deficit/Hyperactivity Disorder", icon="🚨")
+        st.error(f"Criteria not met: **{'**, **'.join(unmet)}**\n\n{st.session_state.current_dis} cannot be diagnosed unless all criteria A-E are met.\n\nConsider diagnosing :blue[F90.8] Other Specified Attention Deficit/Hyperactivity Disorder or :blue[F90.9] Unspecified Attention-Deficit/Hyperactivity Disorder", icon="🚨")
 else:
     criteria_met = st.session_state.A
     if not criteria_met:
-        st.error(f"Criteria not met: **A**\n\n{st.session_state.current_dis} cannot be diagnosed unless all criteria A-E are met.\n\nConsider diagnosing :blue[F90.8] Other Specified AttentionDeficit/Hyperactivity Disorder or :blue[F90.9] Unspecified Attention-Deficit/Hyperactivity Disorder", icon="🚨")
+        st.error(f"Criteria not met: **A**\n\n{st.session_state.current_dis} cannot be diagnosed unless all criteria A-E are met.\n\nConsider diagnosing :blue[F90.8] Other Specified Attention Deficit/Hyperactivity Disorder or :blue[F90.9] Unspecified Attention-Deficit/Hyperactivity Disorder", icon="🚨")
 
 if ":green-badge[RECOMMENDED]" not in S1 and st.session_state.A:
     st.warning(f"Presentation specifier does not match recommendation. **{S1.split('\n\n')[0]}** was selected instead of **{recommended}**.", icon="⚠️")
