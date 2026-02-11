@@ -147,10 +147,12 @@ with st.container(border=True):
                 output.append(data_out[key].replace("(Note:", "(note:"))
             else:
                 output.append(data_out[key])
-    output.append([data["S1a"], data["S1b"], data["S1c"]][S1text.index(S1)].replace(" If ", " if ", 1).replace(" Criterion ", " criterion "))
-    if st.session_state.S2:
+    if not omitS1:
+        output.append([data["S1a"], data["S1b"], data["S1c"]][S1text.index(S1)].replace(" If ", " if ", 1).replace(" Criterion ", " criterion "))
+    if st.session_state.S2 and not omitS2:
         output.append(data["S2"].replace(" Full ", " full ", 1))
-    output.append([data["S3a"].replace("Few", "few", 1), data["S3b"].replace("Symptoms", "symptoms", 1), data["S3c"].replace("Many", "many", 1)][[f":green[**Mild**]\n\n{data['S3a'].replace("Mild: ", "")}", f":orange[**Moderate**]\n\n{data['S3b'].replace("Moderate: ", "")}", f":red[**Severe**]\n\n{data['S3c'].replace("Severe: ", "")}"].index(S3)])
+    if not omitS3:
+        output.append([data["S3a"].replace("Few", "few", 1), data["S3b"].replace("Symptoms", "symptoms", 1), data["S3c"].replace("Many", "many", 1)][[f":green[**Mild**]\n\n{data['S3a'].replace("Mild: ", "")}", f":orange[**Moderate**]\n\n{data['S3b'].replace("Moderate: ", "")}", f":red[**Severe**]\n\n{data['S3c'].replace("Severe: ", "")}"].index(S3)])
     for i in range(len(output)):
         output[i] = output[i][0].lower() + output[i][1:].rstrip(".")
     st.markdown(", ".join(output))
