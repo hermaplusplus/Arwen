@@ -5,9 +5,9 @@ import os
 
 def add_clean_footer():
 
-    branch = os.environ.get("GIT_BRANCH", "UNKNOWN")
+    branch = os.environ.get("APP_GIT_BRANCH", "UNKNOWN")
     branch_url = f"https://github.com/hermaplusplus/Arwen/tree/{branch}"
-    commit = os.environ.get("GIT_COMMIT", "UNKNOWN")
+    commit = os.environ.get("APP_GIT_COMMIT", "UNKNOWN")
     commit_url = f"https://github.com/hermaplusplus/Arwen/commit/{commit}"
 
     if branch != "UNKNOWN":
