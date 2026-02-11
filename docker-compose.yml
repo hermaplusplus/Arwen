@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        - GIT_BRANCH=${GIT_BRANCH:-unknown}
+        - GIT_COMMIT=${GIT_COMMIT:-unknown}
+    container_name: arwen
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - UV_COMPILE_BYTECODE=1
+    restart: always
