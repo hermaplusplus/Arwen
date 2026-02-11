@@ -12,6 +12,8 @@ st.title("Arwen Diagnostic Criteria Aggregator 📋🧝‍♀️🩺")
 
 st.error("This is **not** a diagnostic tool and should not be used as such. Please read the **About** section below for more information.", icon="🚨")
 
+st.error("This tool is work-in-progress. Some pages may not be fully functional yet or may contain errors.", icon="🚧")
+
 st.markdown("Select a category and disorder, then press the button below to get started:")
 
 cat = st.selectbox("Category", list(data.keys()))
