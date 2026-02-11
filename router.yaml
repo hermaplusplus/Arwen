@@ -32,12 +32,18 @@ Anxiety Disorders:
     page_path: "pages/gad.py"
     data_path: "data/gad.yaml"
 Trauma- and Stressor-Related Disorders:
-  Post-Traumatic Stress Disorder:
+  Post-Traumatic Stress Disorder in Individuals Older than 6 Years:
     logic: complex
-    display_name: "Post-Traumatic Stress Disorder"
+    display_name: "Post-Traumatic Stress Disorder in Individuals Older than 6 Years"
     icd_10: F43.1
-    page_path: "pages/ptsd.py"
-    data_path: "data/ptsd.yaml"
+    page_path: "pages/ptsd-o6.py"
+    data_path: "data/ptsd-o6.yaml"
+  Post-Traumatic Stress Disorder in Children 6 Years and Younger:
+    logic: complex
+    display_name: "Post-Traumatic Stress Disorder in Children 6 Years and Younger"
+    icd_10: F43.1
+    page_path: "pages/ptsd-u6.py"
+    data_path: "data/ptsd-u6.yaml"
 Personality Disorders:
   Antisocial Personality Disorder:
     logic: complex
