@@ -1,5 +1,7 @@
 # Arwen
 
+## About
+
 **Arwen DCA** is designed to help clinicians aggregate diagnostic criteria based on the structure found in the DSM-5-TR.
 
 > [!CAUTION]
@@ -14,3 +16,13 @@ This project is open source and available on [GitHub](https://github.com/hermapl
 <sub>Why is the tool called 'Arwen'? I watched Lord of the Rings recently. That's it.</sub>
 
 <sub>* Automagically, meaning using a Large Language Model.</sub>
+
+## Development
+
+Arwen uses [uv](https://docs.astral.sh/uv/) as a package manager and [Docker Compose](https://docs.docker.com/compose/) for containerisation. To run the project, make sure you have these installed, as well as Python 3.11+.
+
+To activate the virtual environment, run the appropriate (for your system) script under `./.venv/Scripts/`. 
+
+To run the project during development, run `streamlit run main.py`.
+
+To deploy the project in production, run `./start.sh`.
