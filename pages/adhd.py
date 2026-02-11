@@ -94,9 +94,9 @@ S3 = st.radio("Specify current severity:", [f":green[**Mild**]\n\n{data['S3a'].r
 st.markdown("## Output")
 
 omitBCDE = st.toggle("Ignore criteria B, C, D, and E", key="omitBCDE", value=True)
-omitS1 = st.toggle("Ignore presentation specifier", key="omitS1", value=True)
-omitS2 = st.toggle("Ignore remission specifier", key="omitS2", value=True)
-omitS3 = st.toggle("Ignore severity specifier", key="omitS3", value=True)
+omitS1 = st.toggle("Ignore presentation specifier", key="omitS1", value=False)
+omitS2 = st.toggle("Ignore remission specifier", key="omitS2", value=False)
+omitS3 = st.toggle("Ignore severity specifier", key="omitS3", value=False)
 
 if omitBCDE and not any([omitS1, omitS2, omitS3]):
     st.info("Output will not include criteria B, C, D, and E.", icon="ℹ️")
