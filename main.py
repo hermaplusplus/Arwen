@@ -8,11 +8,13 @@ with open("router.yaml", "r") as f:
 
 st.set_page_config(page_title="Arwen DCA", layout="centered")
 
+total_dis = sum(len(data[cat]) for cat in data.keys())
+
 st.title("Arwen Diagnostic Criteria Aggregator 📋🧝‍♀️🩺")
 
 st.error("This is **not** a diagnostic tool and should not be used as such. Please read the **About** section below for more information.", icon="🚨")
 
-st.error("This tool is work-in-progress. Some pages may not be fully functional yet or may contain errors.", icon="🚧")
+st.warning("This tool is work-in-progress. Some pages may not be fully functional yet or may contain errors.", icon="🚧")
 
 st.markdown("Select a category and disorder, then press the button below to get started:")
 
@@ -34,6 +36,7 @@ if st.button(":green[Open Diagnostic Criteria ->]"):
 
 st.markdown("## About")
 st.markdown("**Arwen DCA** is designed to help clinicians aggregate diagnostic criteria based on the structure found in the DSM-5-TR. :red[This is **not** a diagnostic tool and should not be used as such]. Clinicians should always use their own judgement and verify that criteria and codes are correct.")
+st.markdown(f"There are currently :blue[**{total_dis}**] disorders available across :blue[**{len(data.keys())}**] categories.")
 st.markdown("Clincians can select all diagnostic criteria that apply to their patient/client and the tool will output a list of criteria met formatted in a way that can be easily copied into an EHR or note (including systems which parse criteria to :sparkles: :rainbow[automagically*] :sparkles: create a note)")
 st.markdown("This website does :green[**not store any data**] that is submitted and :green[**does not allow the input of any PHI**]. When a user refreshes a page or navigates away, all data is irrevocably lost.")
 st.markdown("This project is open source and available on [GitHub](https://github.com/hermaplusplus/Arwen). It is provided under the [MIT License](https://github.com/hermaplusplus/Arwen/blob/main/LICENSE). Contributions, issue reports, feedback, and suggestions are welcome.")
