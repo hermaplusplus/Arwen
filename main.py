@@ -16,8 +16,8 @@ st.error("This tool is work-in-progress. Some pages may not be fully functional 
 
 st.markdown("Select a category and disorder, then press the button below to get started:")
 
-cat = st.selectbox("Category", list(data.keys()))
-dis = st.selectbox("Disorder", list(data[cat].keys()))
+cat = st.selectbox(f"Category :blue-badge[{len(list(data.keys()))} available]", list(data.keys()))
+dis = st.selectbox(f"Disorder :blue-badge[{len(list(data[cat].keys()))} available]", list(data[cat].keys()))
 
 if st.button(":green[Open Diagnostic Criteria ->]"):
     st.session_state.current_cat = cat
