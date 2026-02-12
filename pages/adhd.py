@@ -84,7 +84,7 @@ D = st.checkbox(f"D. {data['D']}", key="D")
 E = st.checkbox(f"E. {data['E']}", key="E")
 
 st.markdown("## Specifiers")
-st.info("Presentation recommendation is based on criteria A1 and A2, but you can select otherwise.", icon="ℹ️")
+st.info("Presentation recommendation is based on criteria A1 and A2, but you can select otherwise. :red[Warning: this selection may default back to the first option if you alter criteria A1 or A2 after changing it.]", icon="ℹ️")
 
 S1 = st.radio("Specify whether:", S1text, key="S1")
 st.markdown(":small[Specify if:]")
