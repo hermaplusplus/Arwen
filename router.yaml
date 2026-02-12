@@ -11,13 +11,13 @@ Neurodevelopmental Disorders:
 #    icd_10: F84.0, F84.5, F84.8, F84.9
 #    page_path: "pages/simple.py"
 #    data_path: "data/asd.yaml"
-#Depressive Disorders:
-#  Major Depressive Disorder:
-#    logic: complex
-#    display_name: "Major Depressive Disorder"
-#    icd_10: F32.0-F32.9, F33.0-F33.9
-#    page_path: "pages/mdd.py"
-#    data_path: "data/mdd.yaml"
+Depressive Disorders:
+  Major Depressive Disorder:
+    logic: complex
+    display_name: "Major Depressive Disorder"
+    icd_10: F32.0-F32.9, F33.0-F33.9
+    page_path: "pages/mdd.py"
+    data_path: "data/mdd.yaml"
 #  Persistent Depressive Disorder:
 #    logic: complex
 #    display_name: "Persistent Depressive Disorder (Dysthymia)"
